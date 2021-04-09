@@ -1,0 +1,25 @@
+
+.bordeCelda {
+    border-collapse: collapse; 
+    border: 1px solid; 
+} 
+ 
+.letraImpresion {
+    font-family: sans-serif;
+    font-size: 9px;
+}
+
+.encabezadoTabla{
+    text-align:center;
+    font-family: sans-serif;
+    border-collapse: collapse; 
+    background-color:#FF6370;
+    border: 1px solid; 
+}
+
+#texto{
+     font-size: xx-small;
+}
+#textoMiniLeyenda{
+     font-size:x-small;
+}
