@@ -18,14 +18,10 @@
         
     </head>
     <body>
-    <script type="" src="../../resource/lib/vue/vue.min.js" ></script>
-    <link href="../../resource/lib/vuetify/vuetify.min.css" rel="stylesheet" />
-    <script src="../../resource/lib/vuetify/vuetify.min.js" ></script>
-    <script src="../../resource/lib/axios/axios.js" ></script>
-        <div id="app" >
+        <div id="app2" data-script="../../controlador/js/procesos/proceso_clarificacion.js">
             <v-app>
                 <v-container fluid >
-                    <v-row v-if="!continuar">
+                <v-row v-if="!continuar" >
                         <v-col>
                             <v-card
                                 class="mx-auto"
@@ -33,10 +29,11 @@
                                 raised 
                                 >
                                 <!-- ENCABEZADO INTERFAZ-->
-                                <v-card-title  style="background-color: #FF0000; color:#ffffff; " >
+                                <v-card-title  style="background-color: #F9CB29; color:#ffffff; " >
                                     Información interesado
                                 </v-card-title>
                                 <v-container fluid >
+                                <br>
                                     <!--   contenido-->
                                     <v-row justify="center">
                                         <v-avatar color="secondary">
@@ -59,10 +56,11 @@
                                         <v-btn color="error" @click="fnRegresar">Regresar</v-btn>
                                     </v-row>
                                 </v-container>
+                                <br>
                             </v-card>
                         </v-col>
                     </v-row>
-                    <v-row v-if="continuar">
+                    <v-row v-else>
                         <v-col  >
                             <v-card
                                 class="mx-auto"
@@ -70,7 +68,7 @@
                                 raised 
                                 >
                                 <!-- ENCABEZADO INTERFAZ-->
-                                <v-card-title  style="background-color: #00b293; color:#ffffff; " >
+                                <v-card-title  style="background-color: #F9CB29; color:#ffffff; " >
                                     Información Aspirante
                                     
                                 </v-card-title>
@@ -78,6 +76,7 @@
                                     
                                     <!--   contenido-->
                                     <v-row justify="center">
+                                    <br>
                                         <v-avatar color="secondary">
                                             <span class="white--text headline">
                                                RF
@@ -132,7 +131,7 @@
                                         </v-col>
                                     </v-row>
                                     <!--STEPPER PARA TSU-->
-                                        <v-row justify="center" v-if="<%=cve_nivel_estudio%> == 1 "  >
+                                        <v-row justify="center"   >
                                             <v-col md="12" lg="12">
                                             <v-stepper v-model="tsu">
                                                 <v-stepper-header>
@@ -152,25 +151,27 @@
                                                     <v-card
                                                       class="mb-12"
                                                       color="grey lighten-4"
-                                                      height="200px"
+                                                      height="320px"
                                                       >
                                                         <v-container>
                                                            
                                                             <v-row justify="center" align="center">
-                                                                
-                                                               <v-btn  
-                                                                      color="warning"
-                                                                      
-                                                                      fab large dark>
-                                                                <v-icon>mdi-cached</v-icon>
-                                                              </v-btn> 
+                                                                <br>
+                                                                <iframe width="560" height="315" 
+                                                                src="https://www.youtube-nocookie.com/embed/LQuzt9k1kSY" 
+                                                                title="YouTube video player" 
+                                                                frameborder="0" 
+                                                                allow="accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                                                allowfullscreen></iframe>
+                                                               
                                                             </v-row>
                                                             
                                                         </v-container>
                                                     </v-card>
                                                       <v-container>
                                                           <v-row  class="d-flex justify-space-between" >
-                                                            <v-btn color="error" @click="fnRegresar" >Cerrar sesión</v-btn>
+                                                            <!-- <v-btn color="error" @click="fnRegresar" >Cerrar sesión</v-btn> -->
+                                                            <v-btn color="success" @click="tsu=2" >Continuar</v-btn>
                                                         </v-row>
                                                       </v-container>
                                                       
@@ -181,17 +182,16 @@
                                                     <v-card
                                                       class="mb-12"
                                                       color="green lighten-4"
-                                                      height="100px"
+                                                      height="320px"
                                                       >
                                                         <v-container>
                                                             
                                                             <v-row justify="center" align="center">
-                                                                <v-btn  
-                                                                       color="warning" 
-                                                                       
-                                                                       fab large dark>
-                                                                <v-icon>mdi-cached</v-icon>
-                                                              </v-btn>
+                                                            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/lOV2WDsNfo8" 
+                                                            title="YouTube video player" 
+                                                            frameborder="0" 
+                                                            allow="accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                                            allowfullscreen></iframe>
                                                             </v-row>
                                                             
                                                         </v-container>
@@ -199,8 +199,8 @@
                                                     </v-card>
                                                       <v-container>
                                                           <v-row class="d-flex justify-space-between" >
-
-                                                            <v-btn color="error" @click="fnRegresar" >Cerrar sesión</v-btn>
+                                                          <v-btn color="error" @click="tsu=1" >REGRESAR</v-btn>
+                                                            <v-btn color="success" @click="tsu=3" >CONTINUAR</v-btn>
                                                         </v-row>
                                                       </v-container>
                                                   </v-stepper-content>
@@ -238,9 +238,9 @@
                                                                             </v-col>
                                                                         </v-row>
                                                                     </v-card-text>
-                                                                </v-card>
+                                                                </v-card>-->
                                                             </v-col>
-                                                        </v-row> -->
+                                                        </v-row> 
                                                     <v-row>
                                                         <v-col>
 
@@ -250,7 +250,7 @@
                                                         <v-col>
                                                             <v-container>
                                                             <v-row class="d-flex justify-space-between" >
-                                                              <v-btn color="secondary" 
+                                                              <v-btn color="secondary" >
                                                                     
                                                                   Encuesta
                                                               </v-btn> &nbsp; 
@@ -282,7 +282,7 @@
                                             <v-divider></v-divider>
                                             <v-container fluid>
 
-                                                
+                                
                                             </v-container>
                                           </v-card>
                                         </v-dialog>
@@ -303,5 +303,5 @@
     </body>
 
     <!-- Desarrollo -->
-    <script src="../../controlador/js/procesos/proceso_clarificacion.js"></script>
+    <!-- <script src="../../controlador/js/procesos/proceso_clarificacion.js"></script> -->
 </html>

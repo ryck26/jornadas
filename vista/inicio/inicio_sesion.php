@@ -1,5 +1,3 @@
-<!--  -->
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -62,7 +60,7 @@
                                         height="70"
                                         widht="120"
                                         contain
-                                        src="images/logo_sito_app.png"
+                                        src="resource/img/logo_app.png"
                                         >
                                         
                                     </v-img>

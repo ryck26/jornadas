@@ -32,7 +32,7 @@ class email
         $enviado = false;
         try {
 
-            $this->mail->setFrom('notificaciones@utleon.edu.mx', 'Registro ASQ');
+            $this->mail->setFrom('notificaciones@utleon.edu.mx', 'Registro Curso Dual');
             $i = 0;
 			
             $size = (count( $correo ))-1;

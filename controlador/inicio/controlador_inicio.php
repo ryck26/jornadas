@@ -17,6 +17,7 @@ $obj = new ComandoInicio();
 
 $accion = clear_input(isset($_REQUEST['accion']) && $_REQUEST['accion'] != '' ? $_REQUEST['accion'] : '0');
 $cve_menu = clear_input(isset($_REQUEST['cve']) && $_REQUEST['cve'] != '' ? $_REQUEST['cve'] : '0');
+$ruta= clear_input(isset($_REQUEST['ruta']) && $_REQUEST['ruta'] != '' ? $_REQUEST['ruta'] : '');
 $opcionesMenu;
 
 switch ($accion) {
@@ -33,15 +34,13 @@ switch ($accion) {
         session_destroy();
         break;
     case 3: // Opcion para devolver la pagina a mostrar
-        if ($cve_menu) {
-            if (isset($_SESSION["OPCIONES-MENU"][$cve_menu])) {
-                $_SESSION["MENU-ACTUAL"] = $cve_menu;
+        if ($ruta) {
+            
+                $_SESSION["MENU-ACTUAL"] = $ruta;
 //                echo json_encode(file_get_contents("../../" . $_SESSION["OPCIONES-MENU"][$cve_menu]["ruta"]));
-				$mostrarPagina = true; include ("../../" . $_SESSION["OPCIONES-MENU"][$cve_menu]["ruta"]);
-            } else {
-//                echo json_encode("");
-				echo "";
-            }
+                $mostrarPagina = true; include ("../../" . $ruta);
+                //echo $_SESSION["OPCIONES-MENU"][$cve_menu]["ruta"];
+            
         } else {
 //            echo json_encode("");
 			echo "";

@@ -8,20 +8,13 @@
 class Conexion {
     //  variables para conexion SQL SERVIDOR
     private $conexion;
-	//Server
-    private $SQLhost = '127.0.0.1\SQLRM2012';
-    private $SQLDatabase = 'asq';
+
+    private $SQLhost = '127.0.0.1\SQL2016';
+    private $SQLDatabase = 'consejo';
     private $SQLusername = 'sa';
-    private $SQLpass = 'S!t0_2017';
+    private $SQLpass = 'feb0213';
     private static $instancia;
      
-	//local 
-	/*private $SQLhost = '127.0.0.1\SQL2012';
-    private $SQLDatabase = 'asq';
-    private $SQLusername = 'sa';
-    private $SQLpass = 'Juan221211';
-    private static $instancia;
-	*/
     /**
      * 
      * Crea la configuracion para la conexion a BD en PDO

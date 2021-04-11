@@ -40978,9 +40978,9 @@ var preset = {
     values: {}
   },
   lang: {
-    current: 'en',
+    current: 'es',
     locales: {
-      en: _locale__WEBPACK_IMPORTED_MODULE_1__["en"]
+      en: _locale__WEBPACK_IMPORTED_MODULE_1__["es"]
     },
     // Default translator exists in lang service
     t: undefined
@@ -41001,10 +41001,10 @@ var preset = {
       light: {
         primary: '#FD8B35',
         secondary: '#F9CB29',
-        accent: '#82B1FF',
-        error: '#FF5252',
+        accent: '#ED5190',
+        error: '#FF0000',
         info: '#2196F3',
-        success: '#FF0000',
+        success: '#06B2BB',
         warning: '#FB8C00'
       },
       dark: {

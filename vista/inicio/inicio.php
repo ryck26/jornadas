@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Titulo			            : inicio.php
  * Descripción                  : Componentes de la interfaz grafica de inicio
@@ -7,6 +8,10 @@
  * Desarrollador                : Oscar
  * Versión			            : 1.0
  * ID Requerimiento             : 
+ * ACTUALIZACIÓN
+ * Desarrolador                 : Ricardo Franco
+ * Versión                      : 2.0
+ * Descripción                  : restructuración, creado en base a componentes de vuetify y con vueJS
  */
 
 ?>
@@ -14,114 +19,108 @@
 <html lang="es">
 
 <head>
-    <title>Formación Dual</title>
+    <title>Jornada de Clarificación UTL 2021</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <script type="" src="../../resource/lib/vue/vue.min.js" ></script>
+    <script type="" src="resource/lib/vue/vue.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <title>Jornada de Clarificación UTL 2021</title>
+    <link href="resource/icon/mdi/css/materialdesignicons.min.css" rel="stylesheet" />
+    <link href="resource/lib/vuetify/vuetify.min.css" rel="stylesheet" />
+    <script src="resource/lib/vuetify/vuetify.min.js"></script>
+    <script src="resource/lib/axios/axios.js"></script>
+    <script src="resource/lib/lodash/lodash.js"></script>
 
-    <title>Jornada de Clarificación UTL 2021o</title>
-    <link href="../../resource/icon/mdi/css/materialdesignicons.min.css" rel="stylesheet" />
-    <link href="../../resource/lib/vuetify/vuetify.min.css" rel="stylesheet" />
-    <script src="../../resource/lib/vuetify/vuetify.min.js" ></script>
-    <script src="../../resource/lib/axios/axios.js" ></script>
-
+    <style>
+    .activar{
+        color: red !important;
+    }
+    </style>
 </head>
 
 <body>
-    <div  id="app">
-    <v-app>
-            <v-navigation-drawer
-                v-model="drawer"
-                app
-                dense
-                temporary
-                >
-                <v-layout mt-4 mb-2 column align-center> 
-                    <v-flex>
-                        <v-avatar color="primary">
+    <div id="app">
+        <v-app>
+            <v-navigation-drawer v-model="drawer" app  temporary>
+                <v-layout mt-4 mb-2 column align-center>
+                <v-flex>
+                        <v-avatar color="indigo">
                             <v-icon dark>mdi-account-circle</v-icon>
                         </v-avatar>
                     </v-flex>
                     <v-flex>
-                        <p class=""><?//= $_SESSION["USUARIO"]["nombre"] . " " . $_SESSION["USUARIO"]["paterno"] ?></p>
+                        <p class=""><?= $_SESSION["USUARIO"]["nombre"] . " " . $_SESSION["USUARIO"]["paterno"] ?></p>
                     </v-flex>
                 </v-layout>
-                <v-divider  ></v-divider>
+                <v-divider></v-divider>
+              
+                
                 <!-- menu -->
-                <!-- <v-list>
-                    <v-list-item
-                        v-model="menu1"
-                        
-                        color="indigo"
-                        no-action
-                        sub-group
-                        active-class="pink--text"
-                        @click="cargarPlantilla(1)"
-                    >
-                        <v-list-item-icon>
-                            <v-icon>mdi-clipboard-list</v-icon>
-                        </v-list-item-icon>
-                        <v-list-item-content>
-                            <v-list-item-title>Asistencia a cursos</v-list-item-title>
-                        </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item
-                        v-model="menu2"
-                        v-if="false"
-                        color="indigo"
-                        no-action
-                        sub-group
-                        active-class="pink--text"
-                        @click="cargarPlantilla(2)"
-                    >
-                        <v-list-item-icon>
-                            <v-icon>mdi-table-large-plus</v-icon>
-                        </v-list-item-icon>
-                        <v-list-item-content>
-                            <v-list-item-title>Constancias</v-list-item-title>
-                        </v-list-item-content>
-                    </v-list-item>
-                    
-                </v-list> -->
+                <v-list color="sucess" dense >
+                <template 
+                 v-for="item in items" 
+                 :key="item.title"
+                >
+                   
+                
+                <v-list-item 
+               
+                active-class="activar"
+                v-if="_.isEmpty(item.items)"  
+                
+                @click="cargarHtml(item), drawer = !drawer"  >
+                    <v-list-item-icon>
+                    <v-icon>mdi-menu-right</v-icon>
+                    </v-list-item-icon>
+
+                    <v-list-item-title    >{{item.nombre}}</v-list-item-title>
+                </v-list-item>
             
-                <!-- fin menú -->
-                </v-navigation-drawer>
-
-                <v-app-bar
-                app
-                color="primary"
-                dark
-                >
-                    <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-                    <v-toolbar-title>Jornada de Clarificación UTL 2021</v-toolbar-title>
-                    <v-spacer></v-spacer>
+                <v-list-group v-if="!_.isEmpty(item.items)"   no-action sub-group active-class >
+                    <template v-slot:activator>
+                        <v-list-item-title v-text="item.nombre"></v-list-item-title>
+                    </template>
                     
-                    <v-btn fab icon @click="logout">
-                        <v-icon>mdi-logout-variant</v-icon>
-                    </v-btn>
-                </v-app-bar>
-
-                <v-main id="contenido">
-                <!-- <v-container
-                    class="fill-height"
-                    fluid
-                >
-                    <v-row
-                    align="center"
-                    justify="center"
-                    >
-                    <v-col class="text-center">
+                    <v-list-item  v-for="subItem in item.items" :key="subItem.cve_menu" @click="cargarHtml(subItem), drawer = !drawer" link>
+                        <v-list-item-title> {{subItem.nombre}} </v-list-item-title>
                         
-                    </v-col>
+                    </v-list-item>
+                </v-list-group>
+                </template>
+            </v-list>
+           
+                <!-- fin menú -->
+            </v-navigation-drawer>
+
+            <v-app-bar app color="primary" dark>
+                <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+                <v-toolbar-title>Application</v-toolbar-title>
+                <v-spacer></v-spacer>
+                <v-btn fab icon @click="logout">
+                    <v-icon>mdi-logout-variant</v-icon>
+                </v-btn>
+            </v-app-bar>
+            <v-main>
+                <v-container fluid>
+                    <v-row>
+                        <v-col lg="12" md="12"  >
+                            <section id="contenido-sitio" >
+                            
+                            </section>
+                        </v-col>
                     </v-row>
-                </v-container> -->
-                </v-main>
-                <v-overlay :value="overlay">
-                    <v-progress-circular indeterminate size="64"></v-progress-circular>
-                </v-overlay>
-    </v-app>
+                </v-container>
+            </v-main>
+            
+            
+            <v-overlay :value="overlay">
+                <v-progress-circular indeterminate size="64"></v-progress-circular>
+            </v-overlay>
+        </v-app>
+        
 </body>
 <!--Scripts del sitio-->
-    <script src="controlador/js/inicio/inicio.js"></script>
+<script src="controlador/js/inicio/inicio.js"></script>
+
 </html>

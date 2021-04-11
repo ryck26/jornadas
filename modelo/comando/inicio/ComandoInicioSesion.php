@@ -43,20 +43,25 @@ class ComandoInicioSesion {
                 //         AND usuario.contrasena = :contrasena "
                 // );
 
-                
-                // $stmt = $con->prepare("SELECT * FROM usuario");
                 $stmt = $con->prepare(
-                    "SELECT persona.cve_persona, persona.nombre, persona.paterno, persona.materno, 
-                    usuario.usuario, usuario.cve_usuario FROM persona INNER JOIN usuario ON persona.cve_persona = usuario.cve_persona
-                    WHERE (usuario.activo = 1) AND (usuario.usuario = :usuario) AND (usuario.contraseña = :contrasena ) " ); 
+                    "SELECT        persona.cve_persona, 
+                                persona.nombre, 
+                                persona.paterno, 
+                                persona.materno, 
+                                usuario.usuario,
+                                usuario.cve_usuario,
+                                usuario_grupo_seguridad.cve_grupo_seguridad
+                    FROM            persona INNER JOIN
+                         usuario ON persona.cve_persona = usuario.cve_persona INNER JOIN
+                         usuario_grupo_seguridad ON usuario.cve_persona = usuario_grupo_seguridad.cve_persona
+                    WHERE        (usuario.activo = 1) AND (usuario.usuario = :usuario) AND (usuario.contrasena = :contrasena ) " ); 
                 $stmt->bindParam(":usuario", $usuario);
                 $stmt->bindParam(":contrasena", $contrasena);
                 $stmt->execute();
                 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             }
         } catch (Exception $e) {
-            error_log( "Error: " . $e->getMessage());
-            return $e->getMessage();
+           echo ( "Error: " . $e->getMessage());
         }
         Conexion::getInstance()->cerrarConexion();
 

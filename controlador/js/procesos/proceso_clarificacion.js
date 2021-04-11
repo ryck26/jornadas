@@ -1,6 +1,6 @@
 
  const vue= new Vue({
-   el: "#app",
+   el: "#app2",
    vuetify: new Vuetify(),
    data: {
     ctr: '../../../login_recepcion_documentos.jsp',
@@ -10,9 +10,10 @@
     mensaje_alerta: '',
     snackbar: false,
     confirm_mensaje: '',
-    continuar: true,
+    continuar: false,
     dialog: false,
     dialog2: false,
+    tsu:1
     
       
    },
@@ -21,7 +22,9 @@
     this.overlay=false;
    },
    methods: {
+    fnRegresar(){
 
+    }
         
         
     },

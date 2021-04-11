@@ -21,22 +21,21 @@ class Registro {
      * si existe devuelve los datos en un arreglo asosiativo, si no devuelve
      * un arreglo vacio
      */
-     function guardarRegistro($nombre, $paterno, $materno, $correo, $telefono, $celular, $matricula, $grupo, $carrera, $institucion, $organizacion, $puesto, $tipo_persona)
+     function guardarRegistro($nombre, $paterno, $materno, $curp, $cargo, $institucion, $correo, $correoA, $telefono, $celular)
     {
         try {
             $Conexion = Conexion::getInstance()->obtenerConexion();
-            $this->SQL = "INSERT INTO persona (nombre, paterno, materno, correo, telefono, celular, matricula, grupo, carrera, institucion, organizacion, puesto, tipo_persona) 
-                            VALUES ('$nombre', '$paterno', '$materno','$correo', '$telefono', '$celular', '$matricula', '$grupo', '$carrera', '$institucion', '$organizacion', '$puesto', '$tipo_persona')";
+            $this->SQL = "INSERT INTO persona (nombre, paterno, materno, curp, institucion, cargo, correo, correo_alternativo, telefono, celular) 
+                            VALUES ('$nombre', '$paterno', '$materno', '$curp', '$cargo', '$institucion', '$correo', '$correoA', '$telefono', '$celular')";
             $this->sta = $Conexion->prepare($this->SQL);
             $this->sta->execute();
 			
             $id = $Conexion->lastInsertId();
 			
-            /*$this->SQL = "INSERT INTO suscripcion_curso (cve_persona, cve_curso) 
+            $this->SQL = "INSERT INTO suscripcion_curso (cve_persona, cve_curso) 
                             VALUES ('$id', 1)";
             $this->sta = $Conexion->prepare($this->SQL);
             $this->sta->execute();
-			*/
             //insertar aqui participante del consejo       
             Conexion::getInstance()->cerrarConexion();
 			//var_dump($datos);
@@ -47,17 +46,17 @@ class Registro {
         }
     }
 	
-	 function existeRegistro($correo)
+	 function existeCurp($curp)
     {
         try {
             $Conexion = Conexion::getInstance()->obtenerConexion();
             $this->SQL = "SELECT        1 AS existe
 							FROM            persona
-							WHERE        (correo = :correo)";
+							WHERE        (curp = :curp)";
             $this->sta = $Conexion->prepare($this->SQL);
-			$this->sta->bindParam(":correo", $correo);
+			$this->sta->bindParam(":curp", $curp);
             $this->sta->execute();
-			$result = $this->sta->fetchAll(PDO::FETCH_COLUMN, 0);
+			$result = $this->sta->fetchAll(PDO::FETCH_ASSOC);
 			return $result;
 		}
 		catch (Exception $e){
