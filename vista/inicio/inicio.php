@@ -42,7 +42,7 @@
 <body>
     <div id="app">
         <v-app>
-            <v-navigation-drawer v-model="drawer" app  temporary>
+            <!-- <v-navigation-drawer v-model="drawer" app  temporary>
                 <v-layout mt-4 mb-2 column align-center>
                 <v-flex>
                         <v-avatar color="indigo">
@@ -88,14 +88,14 @@
                     </v-list-item>
                 </v-list-group>
                 </template>
-            </v-list>
+            <!-- </v-list> -->
            
                 <!-- fin menú -->
-            </v-navigation-drawer>
+            <!-- </v-navigation-drawer> --> -->
 
             <v-app-bar app color="primary" dark>
-                <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-                <v-toolbar-title>Application</v-toolbar-title>
+                <!-- <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon> -->
+                <v-toolbar-title> Jornada de Clarificación UTL 2021</v-toolbar-title>
                 <v-spacer></v-spacer>
                 <v-btn fab icon @click="logout">
                     <v-icon>mdi-logout-variant</v-icon>

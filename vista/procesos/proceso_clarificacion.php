@@ -69,19 +69,46 @@
                                 >
                                 <!-- ENCABEZADO INTERFAZ-->
                                 <v-card-title  style="background-color: #F9CB29; color:#ffffff; " >
-                                    Información Aspirante
+                                    Información interesado
                                     
                                 </v-card-title>
                                 <v-container fluid >
-                                    
+                                <br>
                                     <!--   contenido-->
                                     <v-row justify="center">
-                                    <br>
+                                    
                                         <v-avatar color="secondary">
                                             <span class="white--text headline">
                                                RF
                                             </span>
                                         </v-avatar>
+                                    </v-row>
+                                    <v-row>
+                                        <v-col>
+                                            DATOS DEL INTERESADO :
+                                        </v-col>
+                                    </v-row>
+                                    <v-row  >
+                                        <v-col>
+                                            Folio: <b>000002</b>
+                                        </v-col> 
+                                        <v-col>
+                                            Nombre: <b>Nombre paterno Materno</b>
+                                        </v-col>
+                                        <v-col>
+                                            Correo: <b>correo@correo.com </b>
+                                        </v-col>
+                                    </v-row>
+                                    <v-row  >
+                                    <v-col>
+                                        Unidad académica: <b>unidad académica</b>
+                                    </v-col>
+                                    <v-col>
+                                        Carrera: <b>carrera</b>
+                                    </v-col>
+                                    <v-col>
+                                            &nbsp;
+                                        </v-col>
                                     </v-row>
                                     <v-row  >
                                         <v-col>
@@ -95,36 +122,7 @@
     
                                         </v-col>
                                     </v-row>
-                                    <v-row>
-                                        <v-col>
-                                            DATOS DEL INTERESADO :
-                                        </v-col>
-                                    </v-row>
-                                    <v-row  >
-                                        <v-col>
-                                            Folio: <b>000002</b>
-                                        </v-col> 
-                                    </v-row>
-                                    <v-row  >
-                                        <v-col>
-                                            Nombre: <b>Nombre paterno Materno</b>
-                                        </v-col> 
-                                    </v-row>
-                                    <v-row  >
-                                        <v-col>
-                                            Correo: <b>correo@correo.com </b>
-                                        </v-col> 
-                                    </v-row>
-                                    <v-row  >
-                                        <v-col>
-                                            Carrera: <b>carrera</b>
-                                        </v-col>
-                                    </v-row>
-                                    <v-row  >
-                                        <v-col>
-                                            Unidad académica: <b>unidad académica</b>
-                                        </v-col> 
-                                    </v-row>    
+    
                                     <v-row  >
                                         <v-col>
                                             
@@ -151,13 +149,13 @@
                                                     <v-card
                                                       class="mb-12"
                                                       color="grey lighten-4"
-                                                      height="320px"
+                                                      height="420px"
                                                       >
                                                         <v-container>
                                                            
                                                             <v-row justify="center" align="center">
                                                                 <br>
-                                                                <iframe width="560" height="315" 
+                                                                <iframe width="560" height="415" 
                                                                 src="https://www.youtube-nocookie.com/embed/LQuzt9k1kSY" 
                                                                 title="YouTube video player" 
                                                                 frameborder="0" 
@@ -182,12 +180,12 @@
                                                     <v-card
                                                       class="mb-12"
                                                       color="green lighten-4"
-                                                      height="320px"
+                                                      height="420px"
                                                       >
                                                         <v-container>
                                                             
                                                             <v-row justify="center" align="center">
-                                                            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/lOV2WDsNfo8" 
+                                                            <iframe width="560" height="415" src="https://www.youtube-nocookie.com/embed/lOV2WDsNfo8" 
                                                             title="YouTube video player" 
                                                             frameborder="0" 
                                                             allow="accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
