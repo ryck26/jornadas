@@ -25,8 +25,8 @@ class ComandoInicioSesion {
 		
         try {
             $result = [];
-			
-            $con = Conexion::getInstance()->obtenerConexion();
+			//var_dump($folio, $curp);
+           $con = Conexion_utl::getInstance_utl()->obtenerConexion_utl();
 			
             if ($con != null) {
                 // $stmt = $con->prepare(
@@ -58,7 +58,7 @@ class ComandoInicioSesion {
                                  datos_escolares ON interesado.cve_interesado = datos_escolares.cve_interesado INNER JOIN
                                  bachillerato ON datos_escolares.cve_bachillerato = bachillerato.cve_bachillerato
                                 inner JOIN ficha_admision ON ficha_admision.cve_solicitud_admision = interesado.cve_solicitud_admision                                   
-                            WHERE        (interesado.fecha_registro >= CONVERT(DATETIME, '2021-01-01 00:00:00', 102)) AND (interesado.cve_solicitud_admision = @folio ) AND (interesado.curp = @curp ) 
+                            WHERE        (interesado.fecha_registro >= CONVERT(DATETIME, '2020-01-01 00:00:00', 102)) AND (interesado.cve_solicitud_admision = @folio ) AND (interesado.curp = @curp ) 
          " ); 
                 $stmt->bindParam(":usuario", $folio);
                 $stmt->bindParam(":contrasena", $curp);
@@ -68,7 +68,7 @@ class ComandoInicioSesion {
         } catch (Exception $e) {
            echo ( "Error: " . $e->getMessage());
         }
-        Conexion::getInstance()->cerrarConexion();
+        Conexion_utl::getInstance_utl()->cerrarConexion_utl();
 
         return $result;
     }

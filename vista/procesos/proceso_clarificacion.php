@@ -8,7 +8,7 @@
  * Versión			            : 1.0
  * ID Requerimiento             : 
  */
-
+//var_dump($_SESSION["USUARIO"][0]);
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,41 +18,48 @@
         
     </head>
     <body>
-        <div id="app2" data-script="../../controlador/js/procesos/proceso_clarificacion.js">
-            <v-app>
-                <v-container fluid >
-                <v-row v-if="!continuar" >
+        <div id="app2"  data-script="../../controlador/js/procesos/proceso_clarificacion.js">
+            <v-app >
+            <v-main >
+                <!-- <v-container style="padding-top: 5px !important;" > -->
+                <v-row  v-if="!continuar" >
                         <v-col>
                             <v-card
-                                class="mx-auto"
+                                class="rounded-xl"
+                                height="350"
                                 max-width="100%"
                                 raised 
+                                color="#F7903B"
                                 >
                                 <!-- ENCABEZADO INTERFAZ-->
-                                <v-card-title  style="background-color: #F9CB29; color:#ffffff; " >
-                                    Información interesado
+                                <br>
+                                <br>
+                                <v-card-title  style=" color:#ffffff; " >
+                                    Verifica que tus datos sean correctos   
                                 </v-card-title>
-                                <v-container fluid >
+                                <v-container  >
                                 <br>
                                     <!--   contenido-->
                                     <v-row justify="center">
                                         <v-avatar color="secondary">
-                                            <span class="white--text headline">RF</span>
+                                            <span class="white--text headline"><?=$_SESSION["USUARIO"][0]["nombre"][0]?><?=$_SESSION["USUARIO"][0]["apellido_paterno"][0]?></span>
                                         </v-avatar>
                                     </v-row>
-                                    <v-row justify="center" >
-                                        Nombre Paterno Materno
+                                    <br>
+                                    <v-row justify="left"  >
+                                      <h3 style="color:#ffffff;">Nombre:  <?=$_SESSION["USUARIO"][0]["nombre"]?> <?=$_SESSION["USUARIO"][0]["apellido_paterno"]?> <?=$_SESSION["USUARIO"][0]["apellido_materno"]?> </h2>
                                     </v-row>
-                                    <v-row justify="center">
-                                        Carrera
-                                        
+                                    <v-row justify="left">
+                                        <h3 style="color:#ffffff;">Carrera: <?=$_SESSION["USUARIO"][0]["titulo_carrera"]?></h2> 
                                     </v-row>
+                                    <br>
+                                    <br>
                                     <v-row justify="center" >
-                                        ¿Eres tú?
+                                       <span    style="color:#ffffff;" >De no ser los correctos por favor envía un correo a:</span> 
                                     </v-row>
+                                    <br>
                                     <v-row justify="center" >
-                                        <v-btn  color="success" @click="continuar=true">Continuar</v-btn> &nbsp; 
-                                        
+                                        <v-btn  color="#00185F" dark @click="continuar=true">Continuar</v-btn> &nbsp; 
                                         <v-btn color="error" @click="fnRegresar">Regresar</v-btn>
                                     </v-row>
                                 </v-container>
@@ -67,59 +74,37 @@
                                 max-width="100%"
                                 raised 
                                 >
-                                <!-- ENCABEZADO INTERFAZ-->
-                                <v-card-title  style="background-color: #F9CB29; color:#ffffff; " >
-                                    Información interesado
-                                    
-                                </v-card-title>
+
                                 <v-container fluid >
                                 <br>
                                     <!--   contenido-->
                                     <v-row justify="center">
-                                    
                                         <v-avatar color="secondary">
-                                            <span class="white--text headline">
-                                               RF
-                                            </span>
+                                        <span class="white--text headline"><?=$_SESSION["USUARIO"][0]["nombre"][0]?><?=$_SESSION["USUARIO"][0]["apellido_paterno"][0]?></span>
                                         </v-avatar>
                                     </v-row>
                                     <v-row>
                                         <v-col>
-                                            DATOS DEL INTERESADO :
+                                           <h3 style="color:#00185f" > En que consiste la jornada de clarificación:</h3>
                                         </v-col>
                                     </v-row>
                                     <v-row  >
                                         <v-col>
-                                            Folio: <b>000002</b>
+                                           <p>
+                                           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                           </p>
                                         </v-col> 
-                                        <v-col>
-                                            Nombre: <b>Nombre paterno Materno</b>
-                                        </v-col>
-                                        <v-col>
-                                            Correo: <b>correo@correo.com </b>
-                                        </v-col>
                                     </v-row>
-                                    <v-row  >
-                                    <v-col>
-                                        Unidad académica: <b>unidad académica</b>
-                                    </v-col>
-                                    <v-col>
-                                        Carrera: <b>carrera</b>
-                                    </v-col>
-                                    <v-col>
-                                            &nbsp;
-                                        </v-col>
-                                    </v-row>
-                                    <v-row  >
+                                    <v-row>
                                         <v-col>
-                                            <v-banner  >
-                                                <h4>En que consiste la Jornada de Clarificación:</h4>
-
-                                            </v-banner>
-                                            <v-divider></v-divider>
-                                            <p>Objetivo:</p>
-                                            <p>Dinámica a seguir:</p>
-    
+                                            <h3 style="color:#00185f" > Objetivo: </h3>
+                                        </v-col>
+                                    </v-row> 
+                                    <v-row>    
+                                        <v-col>
+                                            <p>
+                                            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'
+                                            </p>
                                         </v-col>
                                     </v-row>
     
@@ -295,7 +280,8 @@
                         {{mensaje_alerta}}
                         <v-icon color="white" @click="snackbar=false">mdi-close-circle</v-icon>
                     </v-snackbar>
-                </v-container>
+                <!-- </v-container> -->
+                </v-main>
             </v-app>
         </div>    
     </body>

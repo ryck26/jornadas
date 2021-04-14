@@ -57,7 +57,7 @@
                             <v-card class="elevation-12">
                                 <v-card-title>
                                     <v-img
-                                        height="70"
+                                        height="200"
                                         widht="120"
                                         contain
                                         src="resource/img/logo_app.png"
@@ -69,7 +69,8 @@
                                     flat
                                     >
                                     <v-row justify="center">
-                                        <v-toolbar-title>Jornada de Clarificación UTL 2021</v-toolbar-title>
+                                        <v-toolbar-title style="color:#322E7E">Bienvenido / Bienvenida</v-toolbar-title>
+                                       <span style="color:#322E7E"  >A la jornada de clarificación UTL 2021</span>
                                     </v-row>
                                     
                                 </v-toolbar>
@@ -77,7 +78,7 @@
                                     <v-form>
                                         <v-text-field 
                                             v-model="folio"
-                                            label="Folio Admisión"
+                                            label="Ingresa tú número de folio"
                                             :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
                                             :type="show1 ? 'text' : 'password'"
                                             
@@ -88,7 +89,7 @@
                                             v-model="curp"
                                             :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
                                             :type="show2 ? 'text' : 'password'"
-                                            label="CURP"
+                                            label="Ingresa tú CURP"
                                             
                                             @click:append="show2 = !show2"
                                             ></v-text-field>
@@ -97,7 +98,7 @@
                                 <v-card-actions>
                                     <v-container fluid>
                                     <v-row justify="center">
-                                        <v-btn  :loading="loader" block @click="fnLogin" color="secondary">Iniciar Sesión</v-btn>
+                                        <v-btn  :loading="loader" dark block @click="fnLogin" color="#322E7E">Iniciar Sesión</v-btn>
                                     </v-row>
                                     </v-container>
                                 </v-card-actions>

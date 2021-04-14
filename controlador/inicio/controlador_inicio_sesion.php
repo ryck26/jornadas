@@ -9,22 +9,25 @@
  * ID Requerimiento             : 
  */
 session_start();
-require_once '../../modelo/conexion/Conexion.class.php';
+require_once '../../modelo/conexion/Conexion_utl.class.php';
 require_once '../../modelo/comando/inicio/ComandoInicioSesion.php';
 
 $obj = new ComandoInicioSesion();
 
 $accion = clear_input(isset($_REQUEST["accion"]) && $_REQUEST["accion"] != "" ? $_REQUEST["accion"] : "0");
-$usuario = clear_input(isset($_REQUEST["xTxtUsuario"]) && $_REQUEST["xTxtUsuario"] != "" ? $_REQUEST["xTxtUsuario"] : "");
-$contrasena = clear_input(isset($_REQUEST["xTxtContrasena"]) && $_REQUEST["xTxtContrasena"] != "" ? $_REQUEST["xTxtContrasena"] : "");
+$folio = clear_input(isset($_REQUEST["yFolio"]) && $_REQUEST["yFolio"] != "" ? $_REQUEST["yFolio"] : "");
+$curp = clear_input(isset($_REQUEST["yCurp"]) && $_REQUEST["yCurp"] != "" ? $_REQUEST["yCurp"] : "");
+$datos = clear_input(isset($_REQUEST["datos"]) && $_REQUEST["datos"] != "" ?  $_REQUEST["datos"] : "");
 
 switch ($accion) {
     case 1: // Opcion para validar los datos de inicio de sesion
-        $resp = $obj->autenticar($usuario, $contrasena);
+       // $resp = $obj->autenticar($folio, $curp);
+       $resp= json_decode(html_entity_decode( stripslashes ($datos)), true);
+
         if (empty($resp)) {
             echo json_encode([]);
         } else {
-            $_SESSION["USUARIO"] = $resp[0];
+            $_SESSION["USUARIO"] = $resp;
             echo json_encode($resp);
         }
         

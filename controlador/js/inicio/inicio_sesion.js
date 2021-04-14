@@ -19,7 +19,9 @@
     el: "#app",
     vuetify: vuetify,
     data: {
-        ctr: "controlador/inicio/controlador_inicio_sesion.php",
+        ctr2: "controlador/inicio/controlador_inicio_sesion.php",
+       // ctr: "http://lumen.local/api/jornadas/login", local
+       ctr: "http://servicios.utleon.edu.mx/bsito/api/jornadas/login",
         show1: false,
         show2: false,
         color_mensaje: 'success',
@@ -31,32 +33,52 @@
     },
     methods: {
         fnLogin(){
-            this.loader = true;
-            location.reload();
+            this.loader = true; 
             //Variable para poder mandar parametros por post en axios
-            // let parametros = new URLSearchParams();
-            // parametros.append("accion", 1 );
-            // parametros.append("yFolio", this.folio );
-            // parametros.append("yCurp", this.curp );
+            let parametros = {"accion": 1,"yFolio": this.folio,"yCurp": this.curp};
 
-            // //Peticion ajax al controlador y envio de parametros
-            // axios.post(this.ctr, parametros)
-            //     .then(function(response) {
-                    
-            //         if (Object.keys(response.data).length > 0) {
-            //             location.reload();
-            //         }else{
-            //             this.color_mensaje = 'error';
-            //             this.mensaje_alerta = 'Usuario o contraseña incorrectos';
-            //             this.snackbar = true;
-            //         }
-            //     }.bind(this))
-            //     .catch(function(error) {
-            //       console.log(error);
-            //     })
-            //     .then(function() {
-            //         this.loader = false;
-            //     }.bind(this));
+            //Peticion ajax al controlador y envio de parametros
+            axios.post(this.ctr, parametros)
+                .then(function(response) {
+                    if (Object.keys(response.data).length > 0) {
+                        this.fnSesion(JSON.stringify(response.data));
+                    }else{
+                        this.color_mensaje = 'error';
+                        this.mensaje_alerta = 'Folio o CURP incorrectos';
+                        this.snackbar = true;
+                    }
+                }.bind(this))
+                .catch(function(error) {
+                  console.log(error);
+                })
+                .then(function() {
+                    this.loader = false;
+                }.bind(this));
+        },
+        fnSesion(datos){
+            this.loader = true; 
+            //Variable para poder mandar parametros por post en axios
+            let parametros = new URLSearchParams();
+            parametros.append("accion", 1 );
+            parametros.append("datos", datos);
+
+            //Peticion ajax al controlador y envio de parametros
+            axios.post(this.ctr2, parametros)
+                .then(function(response) {
+                    if (Object.keys(response.data).length > 0) {
+                        location.reload();
+                    }else{
+                        this.color_mensaje = 'error';
+                        this.mensaje_alerta = 'Folio o CURP incorrectos';
+                        this.snackbar = true;
+                    }
+                }.bind(this))
+                .catch(function(error) {
+                  console.log(error);
+                })
+                .then(function() {
+                    this.loader = false;
+                }.bind(this));
         }
     },
  });

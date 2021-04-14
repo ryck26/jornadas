@@ -57,7 +57,7 @@
               
                 
                 <!-- menu -->
-                <v-list color="sucess" dense >
+                <v-list  dense >
                 <template 
                  v-for="item in items" 
                  :key="item.title"
@@ -93,10 +93,10 @@
                 <!-- fin menú -->
             <!-- </v-navigation-drawer> --> -->
 
-            <v-app-bar app color="primary" dark>
+            <v-app-bar app color="#00185F" dark>
                 <!-- <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon> -->
                 <v-toolbar-title> Jornada de Clarificación UTL 2021</v-toolbar-title>
-                <v-spacer></v-spacer>
+                <v-spacer></v-spacer><?=$_SESSION["USUARIO"][0]["nombre"]?> <?=$_SESSION["USUARIO"][0]["apellido_paterno"]?>
                 <v-btn fab icon @click="logout">
                     <v-icon>mdi-logout-variant</v-icon>
                 </v-btn>
