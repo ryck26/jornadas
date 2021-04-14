@@ -18,7 +18,10 @@
         
     </head>
     <body>
-        <div id="app2"  data-script="../../controlador/js/procesos/proceso_clarificacion.js">
+        <div id="app2"  data-script="../../controlador/js/procesos/proceso_clarificacion.js" 
+            data-pdf="../../resource/jsPDF/jspdf.min.js"
+           
+        >
             <v-app >
             <v-main >
                 <!-- <v-container style="padding-top: 5px !important;" > -->

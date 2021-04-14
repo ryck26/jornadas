@@ -78,12 +78,9 @@
             //Peticion ajax al controlador y envio de parametros
             axios.post(this.ctr , parametros  )
             .then(function(response) {
-                  
                 e = document.createElement("article");
                 e.innerHTML = response.data;
-                
                 e.addEventListener('load', function(){
-                //this.menu1=true;
                 this.overlay = false;
                 }.bind(this));
                 document.getElementById("contenido-sitio").innerHTML="";
@@ -92,6 +89,11 @@
                 var nuevo_script = document.createElement("script");
                 nuevo_script.src = document.getElementById('app2').dataset.script;
                 e.appendChild(nuevo_script);
+
+                var nuevo_pdf = document.createElement("script");
+                nuevo_pdf.src = document.getElementById('app2').dataset.pdf;
+                console.log(document.getElementById('app2').dataset.pdf);
+                e.appendChild(nuevo_pdf);
                     
             }.bind(this))
             .catch(function(error) {
