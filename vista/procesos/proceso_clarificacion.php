@@ -41,7 +41,7 @@
                                     Verifica que tus datos sean correctos   
                                 </v-card-title>
                                 <v-container  >
-                                <br>
+                                
                                     <!--   contenido-->
                                     <v-row justify="center">
                                         <v-avatar color="secondary">
@@ -57,16 +57,19 @@
                                     </v-row>
                                     <br>
                                     <br>
-                                    <v-row justify="center" >
-                                       <span    style="color:#ffffff;" >De no ser los correctos por favor envía un correo a:</span> 
+                                    <v-row justify="left" >
+                                       <span    style="color:#ffffff;" >De no ser los correctos por favor envía un correo a:</span>
                                     </v-row>
-                                    <br>
+                                    <v-row justify="left" >
+                                       <span    style="color:#ffffff;" ><b>Correo@utleo.edu.mx</b></span>
+                                    </v-row>
                                     <v-row justify="center" >
                                         <v-btn  color="#00185F" dark @click="continuar=true">Continuar</v-btn> &nbsp; 
                                         <v-btn color="error" @click="fnRegresar">Regresar</v-btn>
                                     </v-row>
                                 </v-container>
-                                <br>
+                                
+                                
                             </v-card>
                         </v-col>
                     </v-row>
@@ -89,6 +92,7 @@
                                     <v-row>
                                         <v-col>
                                            <h3 style="color:#00185f" > En que consiste la jornada de clarificación:</h3>
+
                                         </v-col>
                                     </v-row>
                                     <v-row  >
@@ -113,7 +117,7 @@
     
                                     <v-row  >
                                         <v-col>
-                                            
+                                            <v-img src="../../resource/img/Screenshot_11.png" contain ></v-img>
                                         </v-col>
                                     </v-row>
                                     <!--STEPPER PARA TSU-->
@@ -121,139 +125,126 @@
                                             <v-col md="12" lg="12">
                                             <v-stepper v-model="tsu">
                                                 <v-stepper-header>
-                                                  <v-stepper-step :complete="tsu > 1" step="1">ACTIVIDAD 1</v-stepper-step>
+                                                  <v-stepper-step :complete="tsu > 1" step="1">VIDEO SENSIBILIZADOR</v-stepper-step>
 
                                                   <v-divider></v-divider>
                                                   
-                                                  <v-stepper-step :complete="tsu > 2" step="2">ACTIVIDAD 2</v-stepper-step>
+                                                  <v-stepper-step :complete="tsu > 2" step="2">VIDEOS DE PROMOCIÓN E INSTRUMENTO DE AUTOCONOCIMIENTO</v-stepper-step>
 
                                                   <v-divider></v-divider>
 
-                                                  <v-stepper-step step="3">ACTIVIDAD 3</v-stepper-step>
+                                                  <v-stepper-step step="3">CONSTANCIA</v-stepper-step>
                                                 </v-stepper-header>
 
                                                 <v-stepper-items>
                                                   <v-stepper-content step="1">
                                                     <v-card
                                                       class="mb-12"
-                                                      color="grey lighten-4"
-                                                      height="420px"
+                                                     
+                                                      height="620px"
                                                       >
                                                         <v-container>
-                                                           
                                                             <v-row justify="center" align="center">
-                                                                <br>
-                                                                <iframe width="560" height="415" 
-                                                                src="https://www.youtube-nocookie.com/embed/LQuzt9k1kSY" 
-                                                                title="YouTube video player" 
-                                                                frameborder="0" 
-                                                                allow="accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                                                allowfullscreen></iframe>
-                                                               
+                                                                <v-col col="12">
+                                                                    <h2 style="color:#00185f" >Video sensibilizador</h2>
+                                                                </v-col>    
                                                             </v-row>
-                                                            
+                                                            <v-row >
+                                                                <v-col col="12">
+                                                                <h3 style="color:#00185f" >Bienvenido</h3>
+                                                                </v-col>    
+                                                            </v-row>
+                                                            <v-row >
+                                                                <v-col col="12">
+                                                                    <span style="color:#00185f" >
+                                                                        Te solicitamos veas el siguiente video con atención...
+                                                                    </span>
+                                                                </v-col>
+                                                            </v-row>
+                                                            <v-row justify="center" align="center" >
+                                                                <!-- <v-col  > -->
+                                                                    <iframe width="760" height="355" 
+                                                                        src="https://www.youtube-nocookie.com/embed/LQuzt9k1kSY" 
+                                                                        title="Video sensibilizador" 
+                                                                        frameborder="0" 
+                                                                        allow="accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                                                        allowfullscreen></iframe>
+                                                                <!-- </v-col>     -->
+                                                            </v-row>
+                                                            <v-row  class="d-flex justify-space-between" >
+                                                             <v-btn color="error" @click="fnRegresar" >Cerrar sesión</v-btn> 
+                                                            <v-btn dark color="#00185f" @click="tsu=2" >Actividad 2</v-btn>
+                                                        </v-row>
                                                         </v-container>
                                                     </v-card>
-                                                      <v-container>
-                                                          <v-row  class="d-flex justify-space-between" >
-                                                            <!-- <v-btn color="error" @click="fnRegresar" >Cerrar sesión</v-btn> -->
-                                                            <v-btn color="success" @click="tsu=2" >Continuar</v-btn>
-                                                        </v-row>
-                                                      </v-container>
-                                                      
-                                                    
                                                   </v-stepper-content>
-
                                                   <v-stepper-content step="2">
                                                     <v-card
                                                       class="mb-12"
-                                                      color="green lighten-4"
-                                                      height="420px"
+                                                     
+                                                      height="1120px"
                                                       >
                                                         <v-container>
-                                                            
                                                             <v-row justify="center" align="center">
-                                                            <iframe width="560" height="415" src="https://www.youtube-nocookie.com/embed/lOV2WDsNfo8" 
-                                                            title="YouTube video player" 
-                                                            frameborder="0" 
-                                                            allow="accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                                            allowfullscreen></iframe>
+                                                                <h2 style="color:#00185f" >Video profesor</h2>
                                                             </v-row>
-                                                            
-                                                        </v-container>
-                                                          
-                                                    </v-card>
-                                                      <v-container>
-                                                          <v-row class="d-flex justify-space-between" >
-                                                          <v-btn color="error" @click="tsu=1" >REGRESAR</v-btn>
-                                                            <v-btn color="success" @click="tsu=3" >CONTINUAR</v-btn>
-                                                        </v-row>
-                                                      </v-container>
-                                                  </v-stepper-content>
-
-                                                  <v-stepper-content step="3">
-                                                        <v-row>
-                                                            <v-col>
-                                                                <!-- <v-card>
-                                                                    <v-card-title>
-                                                                        DOCUMENTOS PERSONALES: 
-                                                                    </v-card-title>
-                                                                    <v-card-subtitle>
-                                                                        Estimado aspirante, es importante, para realizar tu inscripción, ingreses al sistema cada uno de los documentos que a continuación se listan, en caso de faltar algún documento, no pondrás completar la entrega
-                                                                    </v-card-subtitle>
-                                                                    <v-card-text>
-                                                                        <ul>
-                                                                            <li>CURP actualizado (consúltalo aquí: <a target="_blank" href="https://www.gob.mx/curp/">CURP</a>)</li>
-                                                                            <li>Acta de Nacimiento</li>
-                                                                            <li>Certificado de preparatoria original o Constancia de estudios emitida por la institución o boleta de calificaciones emitida por la institución (Si no cuentas con tu certificado, éste deberás presentarlo en original a más tardar en el mes de noviembre de 2020).</li>
-                                                                            <li>Referencias de pago y comprobantes de los tres pagos generados.
-                                                                                <span style="color:red"><b>Nota:</b> integra en un solo archivo las tres referencias seguidas de cada uno de sus pagos</span></li>
-                                                                            <li>Fotografía de cuello y cara del interesado a color.</li>
-                                                                            <li>Comprobante de Seguridad Social Publica.</li>
-                                                                            <li>Comprobante de encuesta SUREDSU.</li>
-
-                                                                        </ul>
-                                                                        <v-row>
-                                                                            <v-col>
-                                                                               <b> Recuerde que debes de resguardar tus documentos originales, ya que te serán solicitados posteriormente. </b>
-                                                                            </v-col>
-                                                                        </v-row>
-                                                                        <v-row>
-                                                                            <v-col>
-                                                                                A continuación, deberás subir cada documento, cerciórate de que cada imagen este clara y entendible, además de que este ubicada en el apartado correspondiente, ya que encaso de presentar una inconsistentica en la revisión, te la haremos saber por medio del correo que tenemos registrado, por lo que te pedimos estar pendiente de el, debido a que sólo se procederá a la inscripción una vez que este tu documentación completa y clara.
-                                                                            </v-col>
-                                                                        </v-row>
-                                                                    </v-card-text>
-                                                                </v-card>-->
-                                                            </v-col>
-                                                        </v-row> 
-                                                    <v-row>
-                                                        <v-col>
-
-                                                        </v-col>
-                                                    </v-row>   
-                                                    <v-row>
-                                                        <v-col>
-                                                            <v-container>
+                                                            <v-row justify="center" align="center">
+                                                                    <iframe width="760" height="415" src="https://www.youtube-nocookie.com/embed/lOV2WDsNfo8" 
+                                                                    title="Video profesor" 
+                                                                    frameborder="0" 
+                                                                    allow="accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                                                    allowfullscreen></iframe>
+                                                            </v-row>
+                                                            <br>
+                                                            <v-row justify="center" align="center">
+                                                                <h2 style="color:#00185f" >Video egresado</h2>
+                                                            </v-row>
+                                                            <v-row justify="center" align="center">
+                                                                    <iframe width="760" height="415" src="https://www.youtube-nocookie.com/embed/lOV2WDsNfo8" 
+                                                                    title="Video egresado" 
+                                                                    frameborder="0" 
+                                                                    allow="accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                                                    allowfullscreen></iframe>
+                                                            </v-row>
+                                                            <v-row justify="center" align="center">
+                                                                <h3 style="color:#00185f" >Instrumento</h3>
+                                                            </v-row>
+                                                            <v-row justify="center" align="center">
+                                                                <v-col>
+                                                                        Te solicitamos llenar el siguiente formulario de la forma más atenta  y sincera...
+                                                                </v-col>
+                                                            </v-row>
+                                                            <v-row justify="center" align="center">
+                                                                <v-btn dark color="#00185f"  >Encuesta</v-btn>
+                                                            </v-row>
                                                             <v-row class="d-flex justify-space-between" >
-                                                              <v-btn color="secondary" >
-                                                                    
-                                                                  Encuesta
-                                                              </v-btn> &nbsp; 
-                                                              <v-btn color="error" @click="fnRegresar" >Cerrar sesión</v-btn>
+                                                                <v-btn color="error" @click="tsu=1" >REGRESAR</v-btn>
+                                                                <v-btn dark color="#00185f" @click="tsu=3" >Actividad 3</v-btn>   
+                                                            </v-row>
+                                                        </v-container>
+                                                    </v-card>
+                                                  </v-stepper-content>
+                                                  <v-stepper-content step="3">
+                                                  <v-card
+                                                      class="mb-12"
+                                                     
+                                                      height="120px"
+                                                      >
+                                                     <v-container>
+                                                        <v-row justify="center" align="center">
+                                                                <v-btn dark  color="#00185f"  >Constancia</v-btn>
+                                                        </v-row>   
+                                                        <v-row class="d-flex justify-space-between" >
+                                                            &nbsp; 
+                                                            <v-btn color="error" @click="fnRegresar" >Cerrar sesión</v-btn>
                                                           </v-row>
                                                         </v-container>
-                                                        </v-col>
-                                                    </v-row>  
-                                                      
+                                                    <v-card>    
                                                   </v-stepper-content>
                                                 </v-stepper-items>
                                               </v-stepper>
                                             </v-col>    
                                         </v-row>
- 
-                       
-                                    
                                      <v-row justify="center">
                                         <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
                                           <v-card>
@@ -278,6 +269,7 @@
                         </v-col>
                     </v-row>
 
+                    
                     <!-- TODO: ALERTAS DE SISTEMA-->
                     <v-snackbar v-model="snackbar" top="top" :bottom="true" :multi-line="true" :color="color_mensaje">
                         {{mensaje_alerta}}

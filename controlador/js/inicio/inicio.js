@@ -92,7 +92,7 @@
 
                 var nuevo_pdf = document.createElement("script");
                 nuevo_pdf.src = document.getElementById('app2').dataset.pdf;
-                console.log(document.getElementById('app2').dataset.pdf);
+               // console.log(document.getElementById('app2').dataset.pdf);
                 e.appendChild(nuevo_pdf);
                     
             }.bind(this))

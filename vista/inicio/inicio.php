@@ -111,12 +111,30 @@
                         </v-col>
                     </v-row>
                 </v-container>
+                
             </v-main>
             
             
             <v-overlay :value="overlay">
                 <v-progress-circular indeterminate size="64"></v-progress-circular>
             </v-overlay>
+            <v-footer height="75" color="#00185F" fixed padless>
+                <v-col
+                class="text-right"
+                cols="5"
+                >
+                <img width="250" height="55"  src="../../resource/img/UTL_blanco.png" contain></img>
+                </v-col>
+                <v-col class="text-left white--text" cols="7">
+                <p>
+                <small> Blvd. Universidad Tecnológica #225 Col. San Carlos</small> &nbsp;
+                 <small>CP. 37670 León, Gto. Mex. l Tel (477) 7 10 00 20</small>
+                 <small><a href="../public_html/aviso-de-privacidad/Aviso de privacidad simplificado2021.pdf" class="footLink">Aviso de Privacidad Simplificado</a> | <a href="../public_html/aviso-de-privacidad/Aviso de privacidad integral2021.pdf" class="footLink">Aviso de Privacidad Integral</a></small></p>&nbsp;
+
+                
+                
+                </v-col>
+            </v-footer>
         </v-app>
         
 </body>
